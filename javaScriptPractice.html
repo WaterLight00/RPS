@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> Some practice</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1>some practice</h1>
+    <script>
+       
+        
+        function pcPlay(min = 0, max = 2){
+            let pcHand = ['Rock', 'Paper', 'Scissor'];
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return pcHand[Math.floor(Math.random() * (max - min + 1)) + min]
+        };
+
+
+        function roundResult(pcHand, playerHand
+        ){
+            switch(true){
+                case pcHand == "Rock" && playerHand
+                 == "Scissor":
+                console.log("you loose");
+                break;
+                case pcHand == "Paper" && playerHand
+                 == "Rock":
+                console.log("you loose");
+                break;
+                case pcHand == "Scissor" && playerHand
+                 == "Paper":
+                console.log("you loose");
+                break;
+                case pcHand == playerHand
+                :
+                console.log("its a Draw");
+                break;
+                default:
+                console.log("You win")
+            }
+            
+
+        };
+        
+        let c = undefined;
+        let winCount = 0;
+
+       function paly5Rounds()
+       { 
+        for (c = 0; c < 5; c++){
+        let playerHand = window.prompt('show me');
+        let pcHand = pcPlay();
+        roundResult(pcHand, playerHand
+        );
+        if (console.log == "You win"){winCount++}
+        };
+        gameOutcome();
+        };
+
+        function gameOutcome()
+        {
+        if (winCount > c ){console.log("You won this round")}
+        else{console.log("Loosser!!")};
+        }
+
+        paly5Rounds();
+     
+
+        
+       
+
+    </script>
+</body>
+
+</html>
