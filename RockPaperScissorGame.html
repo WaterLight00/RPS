@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Some practice</title>
+    <title>Rock, Paper, Scissors Game</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors Game</h1>
+
     <div class="suits">
 
             <div id = "rock" class="button">
@@ -21,6 +21,13 @@
     
     </div>
 
+    <div id= "results" class="resultsBox">
+
+        <div id = "playerWinCounter"></div>
+        <div id = "PcWinCounter"></div>
+
+    </div>
+
     <script>
 
      function pcPlay(min = 0, max = 2){
@@ -30,43 +37,105 @@
             return pcHand[Math.floor(Math.random() * (max - min + 1)) + min]
         };
 
+        let playerWins = 0;
+        let pcWins = 0;
+        let winCount = 0;
+        //rename to match result, more accurate
         function roundResult(pcHand, playerHand
-        ){
+        ){ 
+            //let result = undefined;
+            
+            
             switch(true){
                 case pcHand == "rock" && playerHand
                  == "scissor":
-                console.log("you loose");
+                result = "loose";
+                winCount--;
+                pcWins++;
                 break;
                 case pcHand == "paper" && playerHand
                  == "rock":
-                console.log("you loose");
+                result = "loose";
+                winCount--
+                pcWins++;
                 break;
                 case pcHand == "scissor" && playerHand
                  == "paper":
-                console.log("you loose");
+                result = "loose";
+                winCount--;
+                pcWins++;
                 break;
                 case pcHand == playerHand
                 :
-                console.log("its a Draw");
+                result = "draw";
                 break;
                 default:
-                console.log("You win")
+                result = "win";
+                winCount++;
+                playerWins++;
             }
-            
+            //console.log(result);
+            let results = [playerWins, pcWins];
+            //console.log(winCount);
+            //console.log('py ' + results[0]);
+            //console.log('pc ' + results[1]);
+
+            return results;
+
 
         };
 
+        // function youloose(){
+        //     let wincount = undefined;
+        //     let start = 0;
+        //     const resultsBox = document.querySelector('#results');
+        //     const player = document.createElement('div');
+        //     //player.id.add('pw');
+        //     player.textContent = `sorry ${wincount = ++start}`;
+        //     resultsBox.append(player);
+        //     winCount = winCount++;
+        //     console.log(winCount)
 
-        const buttons = document.querySelectorAll('.button');
-
-        buttons.forEach((button) => {
-            button.addEventListener('click', function (e) {
-                //console.log(e.target.id);
-                let playerhand = e.target.id;
-                // console.log(pcPlay());
-                roundResult(pcPlay(), playerhand);
-
-            });
+        
+        
+        // };
+        
+        function scoreUpdate(result){
+            player.id = 'rere'
+            player.textContent = '';
+            player.textContent = `sorry ${result}`;
+            resultsBox.append(player);
+        };
+        
+        
+        //let c = undefined;
+        //let winCount = 0;
+        
+        //    function paly5Rounds()
+        //    { 
+            //     for (c = 0; c < 5; c++){
+                //     let playerHand = window.prompt('show me');
+                //     let pcHand = pcPlay();
+                //     roundResult(pcHand, playerHand
+                //     );
+                //     }};
+                
+                
+                const buttons = document.querySelectorAll('.button');
+                const resultsBox = document.querySelector('#results');
+                const player = document.createElement('div');
+                
+                buttons.forEach((button) => {
+                    button.addEventListener('click', function (e) {
+                        let playerhand = e.target.id;
+                        result = roundResult(pcPlay(), playerhand);
+                        scoreUpdate(result[0]);
+                        
+                        
+                        //result == 'win'? winCount++ : console.log("loose");
+                        //console.log(winCount)
+                        
+                    });
 
             
         });
