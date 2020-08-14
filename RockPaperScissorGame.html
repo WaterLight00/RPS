@@ -1,14 +1,88 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title> Some practice</title>
+    <title>Some practice</title>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock, Paper, Scissors Game</h1>
+    <div class="suits">
+
+            <div id = "rock" class="button">
+                <img data-type="rock" src="Images/rock.png" alt="icon of rock" id="rock">
+            </div>
+            <div id = "paper" class="button">
+                <img data-type="paper" src="Images/paper.png" alt="icon of paper" id="paper">
+            </div>
+            <div id = "scissor" class="button">
+                <img data-type="scissor" src="Images/scissor.png" alt="icon of scissor" id="scissor">
+            </div>
+    
+    </div>
+
     <script>
+
+     function pcPlay(min = 0, max = 2){
+            let pcHand = ['rock', 'paper', 'scissor'];
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return pcHand[Math.floor(Math.random() * (max - min + 1)) + min]
+        };
+
+        function roundResult(pcHand, playerHand
+        ){
+            switch(true){
+                case pcHand == "rock" && playerHand
+                 == "scissor":
+                console.log("you loose");
+                break;
+                case pcHand == "paper" && playerHand
+                 == "rock":
+                console.log("you loose");
+                break;
+                case pcHand == "scissor" && playerHand
+                 == "paper":
+                console.log("you loose");
+                break;
+                case pcHand == playerHand
+                :
+                console.log("its a Draw");
+                break;
+                default:
+                console.log("You win")
+            }
+            
+
+        };
+
+
+        const buttons = document.querySelectorAll('.button');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', function (e) {
+                //console.log(e.target.id);
+                let playerhand = e.target.id;
+                // console.log(pcPlay());
+                roundResult(pcPlay(), playerhand);
+
+            });
+
+            
+        });
+
+    
+
        
-        
+       
+        /*
+ function playerSelectio(){
+
+            const playerHand = document.querySelector(`img[data-type="${e.data}"]`);
+
+        };
+
+
         function pcPlay(min = 0, max = 2){
             let pcHand = ['Rock', 'Paper', 'Scissor'];
             min = Math.ceil(min);
@@ -66,7 +140,7 @@
 
         paly5Rounds();
      
-
+*/
         
        
 
