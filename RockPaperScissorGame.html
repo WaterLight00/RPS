@@ -112,7 +112,7 @@
                 buttons.forEach((button) => {
                     button.addEventListener('click', function (e) {
                         let playerhand = e.target.id;
-                        result = matchResult(pcPlay, playerhand);
+                        result = matchResult(pcPlay(), playerhand);
                         scoreUpdate(result);
                         
                         
