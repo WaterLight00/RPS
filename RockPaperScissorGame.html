@@ -24,6 +24,7 @@
     <div id= "results" class="resultsBox">
 
         <div id = "playerWinCounter">YOU</div>
+        <div id = "roundResult"></div>
         <div id = "pcWinCounter">PC</div>
 
     </div>
@@ -39,8 +40,8 @@
 
         let playerWins = 0;
         let pcWins = 0;
-        let winCount = 0;
-        //rename to match result, more accurate
+        const winRequirement = 5;
+
         function matchResult(pcHand, playerHand
         ){ 
           
@@ -48,19 +49,16 @@
                 case pcHand == "rock" && playerHand
                  == "scissor":
                 result = "loose";
-                winCount--;
                 pcWins++;
                 break;
                 case pcHand == "paper" && playerHand
                  == "rock":
                 result = "loose";
-                winCount--
                 pcWins++;
                 break;
                 case pcHand == "scissor" && playerHand
                  == "paper":
                 result = "loose";
-                winCount--;
                 pcWins++;
                 break;
                 case pcHand == playerHand
@@ -69,7 +67,6 @@
                 break;
                 default:
                 result = "win";
-                winCount++;
                 playerWins++;
             }
 
@@ -88,114 +85,20 @@
         };
 
 
-
-        //need a funtion that plays until one of the players reaches 5 points. 
-        
-        
-        //let c = undefined;
-        //let winCount = 0;
-        
-        //    function paly5Rounds()
-        //    { 
-            //     for (c = 0; c < 5; c++){
-                //     let playerHand = window.prompt('show me');
-                //     let pcHand = pcPlay();
-                //     matchResult(pcHand, playerHand
-                //     );
-                //     }};
-                
-                
                 const buttons = document.querySelectorAll('.button');
                 const resultsBox = document.querySelector('#results');
-                //const player = document.createElement('div');
-                
+        
                 buttons.forEach((button) => {
                     button.addEventListener('click', function (e) {
                         let playerhand = e.target.id;
                         result = matchResult(pcPlay(), playerhand);
                         scoreUpdate(result);
-                        
-                        
-                        //result == 'win'? winCount++ : console.log("loose");
-                        //console.log(winCount)
-                        
+                        if(result[0] >= winRequirement && result[1] < winRequirement){roundResult.textContent = "You Win"}
+                         else if(result[1] >= winRequirement && result[0] < winRequirement){roundResult.textContent= "You Loose"};
                     });
 
             
         });
-
-    
-
-       
-       
-        /*
- function playerSelectio(){
-
-            const playerHand = document.querySelector(`img[data-type="${e.data}"]`);
-
-        };
-
-
-        function pcPlay(min = 0, max = 2){
-            let pcHand = ['Rock', 'Paper', 'Scissor'];
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return pcHand[Math.floor(Math.random() * (max - min + 1)) + min]
-        };
-
-
-        function matchResult(pcHand, playerHand
-        ){
-            switch(true){
-                case pcHand == "Rock" && playerHand
-                 == "Scissor":
-                console.log("you loose");
-                break;
-                case pcHand == "Paper" && playerHand
-                 == "Rock":
-                console.log("you loose");
-                break;
-                case pcHand == "Scissor" && playerHand
-                 == "Paper":
-                console.log("you loose");
-                break;
-                case pcHand == playerHand
-                :
-                console.log("its a Draw");
-                break;
-                default:
-                console.log("You win")
-            }
-            
-
-        };
-        
-        let c = undefined;
-        let winCount = 0;
-
-       function paly5Rounds()
-       { 
-        for (c = 0; c < 5; c++){
-        let playerHand = window.prompt('show me');
-        let pcHand = pcPlay();
-        matchResult(pcHand, playerHand
-        );
-        if (console.log == "You win"){winCount++}
-        };
-        gameOutcome();
-        };
-
-        function gameOutcome()
-        {
-        if (winCount > c ){console.log("You won this round")}
-        else{console.log("Loosser!!")};
-        }
-
-        paly5Rounds();
-     
-*/
-        
-       
 
     </script>
 </body>
