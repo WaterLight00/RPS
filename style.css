@@ -1,5 +1,5 @@
 html { 
-    /* background: url(Images/background.jpg) center; */
+
     background: lavenderblush;
     background-size: auto;
 
@@ -16,7 +16,8 @@ border: solid rgb(53, 147, 175);
 border-radius: 50%;
 margin: 1em;
 padding: 5px;
-transition: all;
+/* transition: all; */
+transition: all .07s ease;
 }
 
 #results{
@@ -26,11 +27,18 @@ transition: all;
 }
 
 img{
-    width: 60px;
+    width: 40px;
 }
 
 .selected{
     transform: scale(1.1);
     border-color: darkblue;
     box-shadow: 0 0 1rem darkblue;
+    
+}
+
+.clicked{
+    border-color: black;
+    box-shadow: 0 0 1rem black;
+
 }

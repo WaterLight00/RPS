@@ -93,7 +93,6 @@
 
 
                 const buttons = document.querySelectorAll('.button');
-                const resultsBox = document.querySelector('#results');
         
                 buttons.forEach((button) => {
                     button.addEventListener('click', function (e) {
@@ -101,10 +100,23 @@
                         result = matchResult(pcPlay(), playerhand);
                         scoreUpdate(result);
                         roundResult(result);
-                    });
-
-            
+                        button.classList.add('clicked');
+                    });  
         });
+
+        buttons.forEach((button) => {
+            button.addEventListener('mouseover', function (e){
+                button.classList.add('selected');
+            });
+        });
+
+        buttons.forEach((button) => {
+            button.addEventListener('mouseout', function (e){
+                button.classList.remove('selected');
+                button.classList.remove('clicked');
+            });
+        });
+
 
     </script>
 </body>
