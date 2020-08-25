@@ -1,5 +1,7 @@
 html { 
-    background: url(Images/background.jpg) center;
+    /* background: url(Images/background.jpg) center; */
+    background: lavenderblush;
+    background-size: auto;
 
 }
 .suits{
@@ -15,6 +17,12 @@ border-radius: 50%;
 margin: 1em;
 padding: 5px;
 transition: all;
+}
+
+.results{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 img{

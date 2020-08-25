@@ -23,8 +23,8 @@
 
     <div id= "results" class="resultsBox">
 
-        <div id = "playerWinCounter"></div>
-        <div id = "PcWinCounter"></div>
+        <div id = "playerWinCounter">YOU</div>
+        <div id = "pcWinCounter">PC</div>
 
     </div>
 
@@ -41,11 +41,9 @@
         let pcWins = 0;
         let winCount = 0;
         //rename to match result, more accurate
-        function roundResult(pcHand, playerHand
+        function matchResult(pcHand, playerHand
         ){ 
-            //let result = undefined;
-            
-            
+          
             switch(true){
                 case pcHand == "rock" && playerHand
                  == "scissor":
@@ -74,38 +72,24 @@
                 winCount++;
                 playerWins++;
             }
-            //console.log(result);
-            let results = [playerWins, pcWins];
-            //console.log(winCount);
-            //console.log('py ' + results[0]);
-            //console.log('pc ' + results[1]);
 
+            let results = [playerWins, pcWins];
+            
             return results;
 
 
         };
 
-        // function youloose(){
-        //     let wincount = undefined;
-        //     let start = 0;
-        //     const resultsBox = document.querySelector('#results');
-        //     const player = document.createElement('div');
-        //     //player.id.add('pw');
-        //     player.textContent = `sorry ${wincount = ++start}`;
-        //     resultsBox.append(player);
-        //     winCount = winCount++;
-        //     console.log(winCount)
-
-        
-        
-        // };
-        
         function scoreUpdate(result){
-            player.id = 'rere'
-            player.textContent = '';
-            player.textContent = `sorry ${result}`;
-            resultsBox.append(player);
+           
+            playerWinCounter.textContent = `YOU ${result[0]}`;
+        
+            pcWinCounter.textContent = `PC ${result[1]}`;
         };
+
+
+
+        //need a funtion that plays until one of the players reaches 5 points. 
         
         
         //let c = undefined;
@@ -116,20 +100,20 @@
             //     for (c = 0; c < 5; c++){
                 //     let playerHand = window.prompt('show me');
                 //     let pcHand = pcPlay();
-                //     roundResult(pcHand, playerHand
+                //     matchResult(pcHand, playerHand
                 //     );
                 //     }};
                 
                 
                 const buttons = document.querySelectorAll('.button');
                 const resultsBox = document.querySelector('#results');
-                const player = document.createElement('div');
+                //const player = document.createElement('div');
                 
                 buttons.forEach((button) => {
                     button.addEventListener('click', function (e) {
                         let playerhand = e.target.id;
-                        result = roundResult(pcPlay(), playerhand);
-                        scoreUpdate(result[0]);
+                        result = matchResult(pcPlay, playerhand);
+                        scoreUpdate(result);
                         
                         
                         //result == 'win'? winCount++ : console.log("loose");
@@ -160,7 +144,7 @@
         };
 
 
-        function roundResult(pcHand, playerHand
+        function matchResult(pcHand, playerHand
         ){
             switch(true){
                 case pcHand == "Rock" && playerHand
@@ -194,7 +178,7 @@
         for (c = 0; c < 5; c++){
         let playerHand = window.prompt('show me');
         let pcHand = pcPlay();
-        roundResult(pcHand, playerHand
+        matchResult(pcHand, playerHand
         );
         if (console.log == "You win"){winCount++}
         };
