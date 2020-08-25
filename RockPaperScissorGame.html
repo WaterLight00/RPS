@@ -64,7 +64,7 @@
                 case pcHand == playerHand
                 :
                 result = "draw";
-                roundResults.textContent= "Its a Draw";
+                roundResults.textContent= "Draw";
                 break;
                 default:
                 result = "win";
@@ -80,7 +80,7 @@
 
         function roundResult(result){
             
-            if(result[0] >= winRequirement && result[1] < winRequirement){roundResults.textContent = "You Win"}
+            if(result[0] >= winRequirement && result[1] < winRequirement){roundResults.textContent = "You Win!!!"}
              else if(result[1] >= winRequirement && result[0] < winRequirement){roundResults.textContent= "You Loose"};
         };
 

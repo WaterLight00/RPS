@@ -1,6 +1,6 @@
 html { 
 
-    background: lavenderblush;
+    background: rgb(252, 226, 235);
     background-size: auto;
 
 }
@@ -24,6 +24,8 @@ transition: all .07s ease;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    font: 3em sans-serif;
+    color: rgb(53, 147, 175);
 }
 
 img{
