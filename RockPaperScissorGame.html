@@ -24,7 +24,7 @@
     <div id= "results" class="resultsBox">
 
         <div id = "playerWinCounter">YOU</div>
-        <div id = "roundResult"></div>
+        <div id = "roundResults"></div>
         <div id = "pcWinCounter">PC</div>
 
     </div>
@@ -44,7 +44,7 @@
 
         function matchResult(pcHand, playerHand
         ){ 
-          
+          roundResults.textContent= "";
             switch(true){
                 case pcHand == "rock" && playerHand
                  == "scissor":
@@ -64,6 +64,7 @@
                 case pcHand == playerHand
                 :
                 result = "draw";
+                roundResults.textContent= "Its a Draw";
                 break;
                 default:
                 result = "win";
@@ -75,6 +76,12 @@
             return results;
 
 
+        };
+
+        function roundResult(result){
+            
+            if(result[0] >= winRequirement && result[1] < winRequirement){roundResults.textContent = "You Win"}
+             else if(result[1] >= winRequirement && result[0] < winRequirement){roundResults.textContent= "You Loose"};
         };
 
         function scoreUpdate(result){
@@ -93,8 +100,7 @@
                         let playerhand = e.target.id;
                         result = matchResult(pcPlay(), playerhand);
                         scoreUpdate(result);
-                        if(result[0] >= winRequirement && result[1] < winRequirement){roundResult.textContent = "You Win"}
-                         else if(result[1] >= winRequirement && result[0] < winRequirement){roundResult.textContent= "You Loose"};
+                        roundResult(result);
                     });
 
             
